@@ -15,5 +15,5 @@ copyfiles(['./lib/**/*.js', './tmp/lib'], { up: 1, verbose: true }, err => {
   console.log('Copy js files finished!');
 });
 
-fs.mkdirSync('./tmp/result');
+fs.mkdirSync('./tmp/results');
 fs.writeFileSync('./tmp/results/output_result.json', '{}');
