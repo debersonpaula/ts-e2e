@@ -1,0 +1,39 @@
+{
+  "name": "ts-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server-start": "webdriver-manager start",
+    "server-update": "webdriver-manager update",
+    "test": "npm run compile && npm run protractor",
+    "debug": "node --inspect-brk ./node_modules/.bin/protractor config/asyncAwait.conf.js",
+    "compile": "rm -rf tmp/ && tsc --project tsconfig.test.json && npm run copy",
+    "copy": "node ./copy.js",
+    "protractor": "protractor ./tmp/src/conf.js",
+    "report": "node reporter.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jasmine": "^3.3.13",
+    "@types/jasminewd2": "^2.0.6",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^5.0.0",
+    "jasmine": "^3.4.0",
+    "protractor": "5.4.2",
+    "protractor-cucumber-framework": "^6.1.2",
+    "typescript": "^3.5.1",
+    "webdriver-manager": "^12.1.5"
+  },
+  "devDependencies": {
+    "@types/cucumber": "^4.0.5",
+    "@types/node": "^12.0.8",
+    "@types/selenium-webdriver": "^3.0.0",
+    "blocking-proxy": "^1.0.1",
+    "copyfiles": "^2.1.0",
+    "selenium-webdriver": "3.6.0",
+    "ts-node": "^8.2.0",
+    "webdriver-js-extender": "^2.1.0"
+  }
+}
