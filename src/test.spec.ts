@@ -26,6 +26,8 @@ When('o botão é clicado', async () => {
 });
 
 Then('a página principal deve ser apresentada com o nome {string}', async (param: string) => {
-  const greetingText = await specPage.getGreetingText();
-  expect(greetingText).to.equal(`Seu nome é x ${param}`);
+  const value = await specPage.getValueText();
+  const value2 = await specPage.getValue2Text();
+  expect(value).to.equal(`Seu nome é ${param}`);
+  expect(value2).to.equal(`Dinamicamente seu nome é ${param}`);
 });
