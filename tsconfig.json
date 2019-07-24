@@ -3,12 +3,16 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "outDir": "tmp",
     "baseUrl": "./",
     "skipLibCheck": true,
-    "noStrictGenericChecks": true
+    "noStrictGenericChecks": true,
+    "paths": {
+      "ts-e2e": ["src/index.ts"]
+    }
   },
+  "include": ["src/**/*", "playground/**/*"],
   "exclude": ["node_modules", "asyncAwait", "plugins.ts"]
 }

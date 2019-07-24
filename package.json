@@ -1,26 +1,27 @@
 {
   "name": "ts-e2e",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "E2E with Protractor + Cucumber + TypeScript (PT-BR)",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf tmp/ && rm -rf deploy/ && tsc --project tsconfig.build.json && node deploy.js",
     "server-start": "webdriver-manager start",
     "server-update": "webdriver-manager update",
     "test": "npm run compile && npm run protractor",
-    "debug": "node --inspect-brk ./node_modules/.bin/protractor config/asyncAwait.conf.js",
     "compile": "rm -rf tmp/ && tsc --project tsconfig.test.json && npm run copy",
     "copy": "node ./copy.js",
     "protractor": "protractor ./tmp/src/conf.js",
     "report": "node reporter.js",
     "sample": "http-server ./sample"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "D.A.Paula <deberson.paula@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "cucumber": "^5.1.0",
     "cucumber-html-reporter": "^5.0.0",
     "protractor": "5.4.2",
     "protractor-cucumber-framework": "^6.1.2",
+    "tslint": "^5.18.0",
     "typescript": "^3.5.1",
     "webdriver-manager": "^12.1.5"
   },

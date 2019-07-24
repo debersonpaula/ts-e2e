@@ -5,3 +5,4 @@ package-lock.json
 results/*.html
 results/*.json
 tmp/
+deploy/
