@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import { browser, Config } from 'ts-e2e';
 
 export let config: Config = {

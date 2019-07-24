@@ -1,3 +1,5 @@
+import 'module-alias/register';
+
 import { Status } from 'cucumber';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -24,7 +26,5 @@ export async function attachScreenshots(scenario) {
       return world.attach(buffer, 'image/png');
     });
   }
-  return await browser.takeScreenshot().then((buffer: any) => {
-    return world.attach(buffer, 'image/png');
-  });
+  return await browser.takeScreenshot().then((buffer: any) => world.attach(buffer, 'image/png'));
 }

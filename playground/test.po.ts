@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import { browser, by, element, ElementFinder, ExpectedConditions } from 'ts-e2e';
 
 export class Page {
