@@ -7,12 +7,12 @@
     "build": "rm -rf tmp/ && rm -rf deploy/ && tsc --project tsconfig.build.json && node deploy.js",
     "server-start": "webdriver-manager start",
     "server-update": "webdriver-manager update",
-    "test": "npm run compile && npm run protractor",
-    "compile": "rm -rf tmp/ && tsc --project tsconfig.test.json && npm run copy",
-    "copy": "node ./copy.js",
-    "protractor": "protractor ./tmp/src/conf.js",
+    "test:playground": "npm run compile && npm run protractor",
+    "compile:playground": "rm -rf tmp/ && tsc --project tsconfig.test.json && node playground.js",
+    "protractor": "protractor ./tmp/playground/conf.js",
     "report": "node reporter.js",
-    "sample": "http-server ./sample"
+    "sample": "http-server ./playground/sample",
+    "deploy": "cd deploy && npm publish"
   },
   "author": "D.A.Paula <deberson.paula@gmail.com>",
   "license": "MIT",
@@ -34,9 +34,12 @@
     "chai": "^4.2.0",
     "copyfiles": "^2.1.0",
     "http-server": "^0.11.1",
+    "module-alias": "^2.2.0",
     "selenium-webdriver": "3.6.0",
     "ts-node": "^8.2.0",
-    "webdriver-js-extender": "^2.1.0"
+    "webdriver-js-extender": "^2.1.0",
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
   },
   "directories": {
     "lib": "lib"
@@ -48,5 +51,8 @@
   "bugs": {
     "url": "https://github.com/debersonpaula/ts-e2e/issues"
   },
-  "homepage": "https://github.com/debersonpaula/ts-e2e#readme"
+  "homepage": "https://github.com/debersonpaula/ts-e2e#readme",
+  "_moduleAliases": {
+    "ts-e2e": "tmp/src/index.js"
+  }
 }

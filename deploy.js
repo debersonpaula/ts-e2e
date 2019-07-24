@@ -1,8 +1,10 @@
-const copyfiles = require('copyfiles');
 const fs = require('fs');
 const path = require('path');
+const copyFiles = require('./helpers/copyFiles');
+const createDir = require('./helpers/createDir');
 
-!fs.existsSync('./deploy') && fs.mkdirSync('./deploy');
+// !fs.existsSync('./deploy') && fs.mkdirSync('./deploy');
+createDir('./deploy');
 copyFiles(['./tmp/**/*', './deploy']).then(() => {
   console.log('Copy source files successfully!');
   copyRoot('tsconfig.json');
@@ -17,14 +19,3 @@ function copyRoot(name) {
   console.log(`Copy file ${name} successfully!`);
 }
 
-function copyFiles(files) {
-  return new Promise((resolve, reject) => {
-    copyfiles(files, { up: 1, verbose: false }, err => {
-      if (err) {
-        reject(err);
-      }
-      resolve();
-    });
-  });
-
-}
