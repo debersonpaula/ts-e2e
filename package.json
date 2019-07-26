@@ -1,6 +1,6 @@
 {
   "name": "ts-e2e",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "E2E with Protractor + Cucumber + TypeScript (PT-BR)",
   "main": "index.js",
   "scripts": {
